@@ -1,0 +1,57 @@
+.taskPage {
+  position: relative;
+  padding-top: 5%;
+  &__centered {
+    // position: absolute;
+    // transition: 0.3s;
+    // opacity: 0;
+    // width: 100%;
+    // max-width: 410px;
+    // padding: 20px;
+    // &:hover {
+    //   opacity: 1;
+    text-align: left;
+    position: relative;
+    list-style-type: none;
+    width: 400px;
+    height: 300px;
+    max-width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+   
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.511);
+    }
+
+}
+&__h4 {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+&__btn {
+  position: absolute;
+  color: #000;
+  right: 0;
+  bottom:0px;
+  padding: 10px 50px;
+  background: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden;
+  transition: .2s;
+  border: none;
+  z-index: 2;
+//   z-index: 1;
+  &:hover{
+      color: rgb(255, 255, 255);
+      background: #0b0b0b ;
+      box-shadow: 0 0 10px #ffffff , 0 0 40px #ffffff  , 0 0 80px  #ffffff;
+      font-weight: 900;
+      transition-delay: .1s;
+  }
+}
+}
