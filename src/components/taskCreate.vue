@@ -8,12 +8,12 @@
         <div class="modal-body">
           <form @submit.prevent="setPost">
             <div class="mb-3">
-                <label for="categoryId">categories:</label>
-                <select v-model="postData.categoryId" id="categoryId" class="form-control">
-                  <option v-for=" c in categor" :key="c.id">
-                    {{ c.title }}
-                  </option>
-                </select>
+              <label for="categoryId">categories:</label>
+              <select v-model="postData.categoryId" id="categoryId" class="form-control">
+                <option v-for=" c in categor" :key="c.id" :value="c.id">
+                  {{ c.title }}
+                </option>
+              </select>
             </div>
             <div class="mb-3">
               <label for="title">nameTask:</label>
@@ -52,6 +52,7 @@ export default {
     return {
       categor: [],
       postData: {
+        categoryId: '',
         dateBegin: '',
         dateEnd: '',
         price: '',
@@ -67,19 +68,26 @@ export default {
       // console.log(categories)
     },
     setPost () {
+      console.log(this.postData)
       fetch('http://api.staging.umeu.app/test/task/create/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Credentials': true,
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
+          'x-access-token': 'token value',
+          'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
+          categoryId: this.categoryId,
           dateBegin: this.dateBegin,
           dateEnd: this.dateEnd,
           price: this.price,
           title: this.title
         })
       })
-        .then(response => console.log(response.json()))
+        .then(response => response.json())
         .then(data => console.log(data))
     }
   },
