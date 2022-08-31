@@ -72,13 +72,15 @@ export default {
       fetch('http://api.staging.umeu.app/test/task/create/', {
         method: 'POST',
         headers: {
-          'Access-Control-Allow-Headers': 'Content-Type',
-          'Access-Control-Allow-Credentials': true,
-          'Content-Type': 'application/json',
-          // 'Content-Type': 'application/json',
-          'x-access-token': 'token value',
-          'Access-Control-Allow-Origin': '*'
         },
+        // headers: {
+        //   'Access-Control-Allow-Headers': 'Content-Type',
+        //   'Access-Control-Allow-Credentials': true,
+        //   'Content-Type': 'application/json',
+        //   'Content-Type': 'application/json',
+        //   'x-access-token': 'token value',
+        //   'Access-Control-Allow-Origin': '*'
+        // },
         body: JSON.stringify({
           categoryId: this.categoryId,
           dateBegin: this.dateBegin,
